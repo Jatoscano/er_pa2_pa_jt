@@ -1,0 +1,77 @@
+<!--Es la version de HTML-->
+<!DOCTYPE html> 
+
+<!--Se relaciona con la MetaData-->
+<!--Importacion de la funcionalidad Thymeleaf (Es como una liberia como el :th)-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<!--Se da la codificacion de la navegacion-->
+    <meta charset="UTF-8"> 
+    <!--Adpatacion a que dispositivo se usa-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!--Pestania que se utilizara en el navegador-->
+    <title>Actualizacion de Estudiantes</title> 
+</head>
+<!--Contiene lo que la Pagina Web se va a visualizar-->
+<body>
+	<h1>
+		Actualizar Estudiante
+	</h1>
+	<!--Se ejecutara a traves de un formulario-->
+    <form th:action="@{/servicios/actualizarEstudiante/{id}(id=${estudiante.id})}"
+    	  th:object="${estudiante}"
+    	  th:method="PUT">
+		<table>
+			<tr>
+				<td>
+					<label>ID: </label>
+				</td>
+				<td>
+					<input type="text" th:field="${estudiante.id}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Nombre: </label>
+				</td>
+				<td>
+					<input type="text" th:field="${estudiante.nombre}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Apellido: </label>
+				</td>
+				<td>
+					<input type="text" th:field="${estudiante.apellido}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Cedula: </label>
+				</td>
+				<td>
+					<input type="text" th:field="${estudiante.cedula}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Fecha de Nacimiento: </label>
+				</td>
+				<td>
+					<input type="text" th:field="${estudiante.fecha}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Genero: </label>
+				</td>
+				<td>
+					<input type="text" th:field="${estudiante.genero}">
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="Guardar Estudiante">
+	</form>
+</body>
+</html>
